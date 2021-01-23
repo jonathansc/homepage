@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title #{title} | jonathansc
+    link(rel="stylesheet", href="css/style.css")
+    link(rel="icon", href="/img/favicon.ico", type="image/x-icon")
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+    <meta name="viewport" content="width=device-width">
+  body
+    div.pure-g
+      div.pure-u-1.pure-u-lg-1-3
+        include navbar
+      div.pure-u-1.pure-u-lg-1-3
+        block content
+        block foot
+          #footer
+            p This website is hosted via GitHub Pages. Check out my repository.

@@ -1,0 +1,22 @@
+extends layout.pug
+
+block content
+  h1= title
+  p 
+    | These are some birds I've seen and managed to capture on camera.
+    | The information provided mainly stems from Wikipedia and my own bird-books while the images for each of these birds are taken by myself, that is this website documents the goal to see as many birds as possible. 
+    | My own, boring version of a PokeDex if you will. 
+    | I will also try to upload every picture to Wikimedia Commons with additional copyright info for those who are interested (User:Eiderente).
+  - let year_range = [...Array(((new Date).getFullYear()-2020)+1).keys()].map(el=>el+2020);
+  - year_range = year_range.reverse();
+  each year in year_range
+    - let entry = false;
+    - bird_sites.forEach(bird=>{if(new Date(bird.data["first_seen_date"]).getFullYear()==year) entry=true});
+    if entry
+      p #{year}:
+      ul
+        each bird in bird_sites
+          - let date_year = new Date(bird.data["first_seen_date"]).getFullYear();
+          if date_year == year
+            li
+              a(href=bird.url)=bird.title

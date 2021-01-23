@@ -1,0 +1,13 @@
+extends layout.pug
+
+block content
+  h1
+    | #{additional_data["bird_name_ger"]}
+    span#alt-bird-name (en: #{additional_data["bird_name_en"]})
+  img#bird-img(src='media/birds/' + additional_data["img"])
+  - let date = new Date(additional_data["first_seen_date"]);
+  - let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  - let date_month = months[date.getMonth()];
+  - let date_year = date.getFullYear();
+  p First seen: #{additional_data["first_seen_loc"]} (#{date_month} #{date_year})
+  p= additional_data["bird_description"]
