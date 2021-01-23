@@ -8,9 +8,9 @@ const template_dir = 'pug';
 let tgen = new TGen(template_dir);
 
 // RM OLD HTML FILES
-let files = fs.readdirSync('public/');
+let files = fs.readdirSync('docs/');
 files.forEach(file=>{
-    if(file.includes(".html")) fs.unlinkSync(`public/${file}`);
+    if(file.includes(".html")) fs.unlinkSync(`docs/${file}`);
 });
 
 // CREATE SITES
@@ -47,7 +47,7 @@ sites.forEach(site=>{
         'additional_data': site.data,
     });
 
-    fs.writeFile(`./public/${site.url}`, html_code, err => {
+    fs.writeFile(`./docs/${site.url}`, html_code, err => {
         if(err) throw err;
     });
 });
